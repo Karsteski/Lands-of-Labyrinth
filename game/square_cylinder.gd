@@ -20,4 +20,10 @@ func _process(delta: float) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	pass
+	# TODO: Hardcoded height, needs to scale with the length of the cylinder
+	if position.y > 5:
+		# Collide with floor
+		# TODO: Rename these layers please lol
+		set_collision_layer_value(1, true)
+		set_collision_mask_value(1, true)
+		

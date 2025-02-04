@@ -21,7 +21,7 @@ size = Vector3(10, 1, 10)
 [node name="map" type="Node3D"]
 script = ExtResource("1_ue6iv")
 cylinder = ExtResource("2_y7xa1")
-initial_force_on_cylinder = Vector3(0, 750, 0)
+initial_force_on_cylinder = Vector3(0, 1250, 0)
 
 [node name="floor" type="StaticBody3D" parent="."]
 
