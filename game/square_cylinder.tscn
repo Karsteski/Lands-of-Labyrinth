@@ -8,15 +8,15 @@ size = Vector3(1, 5, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_pvg76"]
 size = Vector3(1, 5, 1)
 
-[node name="square_cylinder" type="Node3D"]
+[node name="square_cylinder" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_xiicl")
-lifetime = 2.0
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("BoxShape3D_n8mg5")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
 mesh = SubResource("BoxMesh_pvg76")

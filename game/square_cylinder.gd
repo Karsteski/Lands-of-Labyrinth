@@ -1,10 +1,9 @@
 @tool
-extends Node3D
+extends RigidBody3D
 
 @export var lifetime: float = 10
 
 @onready var in_editor := Engine.is_editor_hint()
-@onready var rigidbody3D: RigidBody3D = $RigidBody3D
 
 func die() -> void:
 	# If we free a Node in the editor, bad things happen :(
