@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cevehn3plmw21"]
+
+[ext_resource type="Script" path="res://game/mazing/maze_visualizer.gd" id="1_et6mi"]
+
+[node name="MazeVisualizer" type="Node2D"]
+script = ExtResource("1_et6mi")

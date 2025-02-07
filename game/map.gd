@@ -1,6 +1,8 @@
 @tool
 extends Node3D
 
+var figs_algorithm: FigsAlgorithm = preload("res://game/mazing/figs_algorithm.gd").new()
+
 @export var cylinder: PackedScene = null
 @export var enable_physics := false
 @export var toggle := false
@@ -39,6 +41,10 @@ func generate_cylinder_grid() -> void:
 func _ready() -> void:
 	pass
 
+const maze_size = Vector2i(5,5)
+var maze = figs_algorithm.Maze.new(maze_size)
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -47,3 +53,4 @@ func _process(delta: float) -> void:
 	if toggle:
 		generate_cylinder_grid()
 		toggle = false
+
