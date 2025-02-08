@@ -1,3 +1,4 @@
+@tool
 class_name Maze
 
 var current_grid: Grid
@@ -15,7 +16,7 @@ class Grid:
 
 	func _init(size: Vector2i) -> void:
 		self.size = size
-		data.resize(size.x * size.y)
+		data.resize(size.x)
 
 		for x in size.x:
 			data[x] = []
@@ -26,8 +27,8 @@ class Grid:
 static func generate_random_grid(size: Vector2i) -> Grid:
 	var grid := Grid.new(size)
 
-	for x in size.x:
-		for y in size.y:
+	for x in grid.size.x:
+		for y in grid.size.y:
 			grid.data[x][y] = randi() % 2 as bool
 
 	return grid
@@ -53,9 +54,8 @@ func count_living_neighbours(cell: Vector2i, cells: Array) -> int:
 	
 	return num_alive_neighbour_cells
 
+## Calculates the next iteration of the game of life
 func next_iteration(current_cells: Array) -> Array:
-	# Must reset living cell count
-
 	var new_cells = []
 	new_cells.resize(current_cells.size())
 
@@ -78,5 +78,8 @@ func next_iteration(current_cells: Array) -> Array:
 				if num_alive_neighbours == 3:
 					# Cells reproduce to create a living cell
 					new_cells[x][y] = true
+				else:
+					# Cell remains dead
+					new_cells[x][y] = false
 
 	return new_cells

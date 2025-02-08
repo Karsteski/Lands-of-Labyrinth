@@ -1,6 +1,7 @@
+@tool
 extends RigidBody3D
 
-var active := false
+@onready var active := false
 
 @export var lifetime: float = 10
 
@@ -9,7 +10,7 @@ var active := false
 func die() -> void:
 	# If we free a Node in the editor, bad things happen :(
 	if not in_editor:
-		print("I'm dead = ", randi())
+		# print("I'm dead = ", randi())
 		queue_free()
 
 # Called when the node enters the scene tree for the first time.
