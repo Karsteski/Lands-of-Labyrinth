@@ -14,3 +14,7 @@ config/name="Lands of Labyrinth"
 run/main_scene="res://game/map.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[debug]
+
+gdscript/warnings/shadowed_variable=0

@@ -1,5 +1,6 @@
-@tool
 extends RigidBody3D
+
+var active := false
 
 @export var lifetime: float = 10
 
@@ -21,7 +22,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	# TODO: Hardcoded height, needs to scale with the length of the cylinder
-	if position.y > 5:
+	if position.y > 5 and active:
 		# Collide with floor
 		# TODO: Rename these layers please lol
 		set_collision_layer_value(1, true)
